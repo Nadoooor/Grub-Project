@@ -161,26 +161,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Animate the observed element if it has data-animate
-                    if (entry.target.hasAttribute('data-animate')) {
-                        const animation = entry.target.getAttribute('data-animate');
-                        entry.target.classList.add(`animate-${animation}`);
-                    }
-                    // Animate children with data-animate
-                    const animatedElements = entry.target.querySelectorAll('[data-animate]');
-                    animatedElements.forEach(el => {
-                        const animation = el.getAttribute('data-animate');
-                        el.classList.add(`animate-${animation}`);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and the footer
-        document.querySelectorAll('section, footer').forEach(element => {
-            observer.observe(element);
-        });
-
+                    
         // Smooth scroll for navbar links
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
